@@ -1,0 +1,54 @@
+﻿@page
+@model CatalogOfWehicle.Pages.Wehicles.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Добавить</h1>
+
+<h4>Авто</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Wehicle.RegistrationNumber" class="control-label"></label>
+                <input asp-for="Wehicle.RegistrationNumber" class="form-control" />
+                <span asp-validation-for="Wehicle.RegistrationNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wehicle.ModelWehicle" class="control-label"></label>
+                <input asp-for="Wehicle.ModelWehicle" class="form-control" />
+                <span asp-validation-for="Wehicle.ModelWehicle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wehicle.Color" class="control-label"></label>
+                <input asp-for="Wehicle.Color" class="form-control" />
+                <span asp-validation-for="Wehicle.Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wehicle.ReleaseDate" class="control-label"></label>
+                <input asp-for="Wehicle.ReleaseDate" class="form-control" />
+                <span asp-validation-for="Wehicle.ReleaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wehicle.KilometrAge" class="control-label"></label>
+                <input asp-for="Wehicle.KilometrAge" class="form-control" />
+                <span asp-validation-for="Wehicle.KilometrAge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Вернуться</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

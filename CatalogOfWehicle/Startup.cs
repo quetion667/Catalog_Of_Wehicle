@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+п»їusing Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using CatalogOfWehicle.Data;
 
 namespace CatalogOfWehicle
 {
@@ -20,13 +22,17 @@ namespace CatalogOfWehicle
 
         public IConfiguration Configuration { get; }
 
-        // Этот метод вызыввется в рантайме
+        // РѕР±СЂР°Р±Р°С‚С‹РІР°РµРј РїРѕРґРєР»СЋС‡РµРЅРёРµ Рє Р‘Р” Рё СЃРѕРїРѕСЃС‚РѕРІР»СЏРµРј РѕР±СЉРµРєС‚С‹ Wehicle c Р·Р°РїРёСЃСЏРјРё РІ Р‘Р”
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            // РґРѕР±Р°РІР»СЏРµРј РєРѕРЅС‚РµРєСЃ РґР»СЏ СЂР°Р±РѕС‚С‹
+            services.AddDbContext<CatalogOfWehicleContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("CatalogOfWehicleContext")));
         }
 
-        // этот тоже в рантайме, здесь можно настроить HTTP - запросы
+        // РєРѕРЅС„РёРіСѓСЂР°С†РёСЏ HTTP - Р·Р°РїСЂРѕСЃРѕРІ
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -36,7 +42,7 @@ namespace CatalogOfWehicle
             else
             {
                 app.UseExceptionHandler("/Error");
-                // дефолтное Hsts - 30 дней 
+                // 
                 app.UseHsts();
             }
 

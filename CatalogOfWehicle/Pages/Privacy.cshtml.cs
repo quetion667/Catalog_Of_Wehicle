@@ -17,6 +17,7 @@ namespace CatalogOfWehicle.Pages
             _logger = logger;
         }
 
+        //здесь не надо ничего возвращать
         public void OnGet()
         {
         }
