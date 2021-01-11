@@ -32,7 +32,7 @@ namespace CatalogOfWehicle
                     options.UseSqlServer(Configuration.GetConnectionString("CatalogOfWehicleContext")));
         }
 
-        // конфигурация HTTP - запросов
+        // подключим, что надо
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

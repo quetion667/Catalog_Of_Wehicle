@@ -12,6 +12,7 @@ namespace CatalogOfWehicle.Pages.Wehicles
 {
     public class DetailsModel : PageModel
     {
+        //выведем данные
         private readonly CatalogOfWehicle.Data.CatalogOfWehicleContext _context;
 
         public DetailsModel(CatalogOfWehicle.Data.CatalogOfWehicleContext context)

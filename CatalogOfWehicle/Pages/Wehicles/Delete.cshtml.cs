@@ -12,6 +12,7 @@ namespace CatalogOfWehicle.Pages.Wehicles
 {
     public class DeleteModel : PageModel
     {
+        //удалаяем по id
         private readonly CatalogOfWehicle.Data.CatalogOfWehicleContext _context;
 
         public DeleteModel(CatalogOfWehicle.Data.CatalogOfWehicleContext context)
